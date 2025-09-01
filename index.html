@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dr. Taha Rajeh — AI & Data Science</title>
+  <meta name="description" content="Dr. Taha Rajeh — Researcher & Lecturer in AI, Deep Learning, Reinforcement Learning, Urban Computing, and Medical Imaging." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--max:1080px;--fg:#0f172a;--muted:#475569;--accent:#2563eb;--bg:#f8fafc;--card:#ffffff;--ring:rgba(37,99,235,.25)}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--fg);background:var(--bg);}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max);margin-inline:auto;padding:24px}
+    header{position:sticky;top:0;background:rgba(248,250,252,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e5e7eb;z-index:50}
+    nav{display:flex;align-items:center;gap:16px;justify-content:space-between}
+    .nav-links{display:flex;flex-wrap:wrap;gap:14px;}
+    .brand{font-weight:800;letter-spacing:.2px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;background:var(--accent);color:#fff;font-weight:600;border:1px solid transparent}
+    .btn:hover{filter:brightness(.95)}
+    section{scroll-margin-top:84px}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;padding-block:36px}
+    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:16px;padding:18px}
+    .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .kpi{padding:14px;border-radius:14px;border:1px solid #e5e7eb;background:#fff}
+    .kpi b{font-size:22px;display:block}
+    h1{font-size:36px;margin:8px 0 6px}
+    h2{font-size:26px;margin:28px 0 10px}
+    h3{font-size:18px;margin:18px 0 8px}
+    ul{margin:8px 0 0 20px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{border:1px solid #e2e8f0;padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+    footer{padding:36px 0;color:var(--muted);text-align:center}
+    @media (max-width:880px){.hero{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.grid-2{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="brand">Dr. Taha Rajeh</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#experience">Experience</a>
+          <a href="#teaching">Teaching</a>
+          <a href="#publications">Publications</a>
+          <a href="#activities">Activities</a>
+          <a href="#contact">Contact</a>
+          <a class="btn" href="#cv">CV</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="about" class="hero">
+      <div class="card">
+        <h1>AI Researcher & Senior Lecturer</h1>
+        <p>Senior Lecturer at Stirling College, Chengdu University (CDU). Research in <b>Deep Learning</b>, <b>Reinforcement Learning</b>, <b>Urban Computing</b>, and <b>Medical Imaging</b>. Focused on human‑centered AI, lifelong adaptation, and real‑world impact.</p>
+        <div class="tags" aria-label="links">
+          <a class="tag" href="mailto:rejehtm@gmail.com">Email</a>
+          <a class="tag" href="#">Google Scholar</a>
+          <a class="tag" href="#">LinkedIn</a>
+          <a class="tag" href="#">GitHub</a>
+          <a class="tag" href="#">ResearchGate</a>
+          <a class="tag" href="#">ORCID</a>
+          <a class="tag" href="#">DBLP</a>
+          <a class="tag" href="#">Semantic Scholar</a>
+        </div>
+        <div class="kpis" style="margin-top:16px">
+          <div class="kpi"><b>16+</b><span>H‑Index</span></div>
+          <div class="kpi"><b>800+</b><span>Citations</span></div>
+          <div class="kpi"><b>40+</b><span>Journal Papers</span></div>
+          <div class="kpi"><b>25+</b><span>Conference Papers</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Research Interests</h3>
+        <ul>
+          <li>Computer Vision: segmentation, detection, weak supervision</li>
+          <li>Reinforcement Learning for infrastructure & complex projects</li>
+          <li>Urban Computing & Transportation Analytics</li>
+          <li>Medical Image Analysis (TMJ MRI, 3D segmentation)</li>
+          <li>Human‑Centered, Lifelong & Transferable AI</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="research" class="grid-2">
+      <div class="card">
+        <h2>Selected Projects</h2>
+        <ul>
+          <li><b>Knowledge Signaling for Lifelong AI</b> — frameworks for incremental learning and transfer.</li>
+          <li><b>Time‑Aware Bike Flow Prediction</b> — urban mobility forecasting with spatio‑temporal fusion.</li>
+          <li><b>TMJ MRI Segmentation</b> — MedicalNet encoders with Dice logging and robust training.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Funding & Patents</h2>
+        <ul>
+          <li>National Foreign Experts Programme (PI) — cost‑effective crack segmentation.</li>
+          <li>Sichuan Natural Science Foundation (Co‑PI) — dermoscopic segmentation (weak labels).</li>
+          <li>2 Patents — CAM‑based crack segmentation; target scale selection.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="experience" class="grid-2">
+      <div class="card">
+        <h2>Experience</h2>
+        <ul>
+          <li><b>Senior Lecturer</b>, Stirling College, CDU — AI, Data Science, supervision.</li>
+          <li><b>Postdoctoral Research Fellow</b>, SWJTU — segmentation & infrastructure AI.</li>
+          <li><b>Lecturer</b>, SWJTU‑Leeds Joint School — Algorithms, AI, curriculum design.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2 id="teaching">Teaching</h2>
+        <ul>
+          <li>Artificial Intelligence, Computing Science Project</li>
+          <li>Introduction to Data Science</li>
+          <li>Data Structures & Algorithms; Formal Languages & Automata</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="publications" class="card">
+      <h2>Selected Publications</h2>
+      <ul>
+        <li>Efficient crack segmentation with modular/lightweight architectures.</li>
+        <li>Triplet‑attention teacher–student for dermoscopic image segmentation.</li>
+        <li>FedGODE/FedAGAT for traffic flow prediction with graph ODE/attention.</li>
+        <li>Vision Transformer with fusion attention (3D brain tumor segmentation).</li>
+      </ul>
+      <p style="margin-top:8px">Full list on <a href="#">Google Scholar</a>.</p>
+    </section>
+
+    <section id="activities" class="grid-2">
+      <div class="card">
+        <h2>Activities</h2>
+        <ul>
+          <li>Session chair & speaker (WACV, AIPR, BDML, etc.).</li>
+          <li>Reviewer: TNNLS, T‑ITS, PR, EAAI, ESWA, Neurocomputing, etc.</li>
+        </ul>
+      </div>
+      <div class="card" id="cv">
+        <h2>Download CV</h2>
+        <p>Provide a link to your latest PDF CV hosted on GitHub or Drive.</p>
+        <a class="btn" href="#">Get CV (PDF)</a>
+      </div>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:rejehtm@gmail.com">rejehtm@gmail.com</a></p>
+      <p>Phone (optional): +86‑15680685401</p>
+      <p>Affiliation: Stirling College, Chengdu University — Longquanyi District, Chengdu, Sichuan, PRC</p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Taha Rajeh — All rights reserved. | Academic portfolio.
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
