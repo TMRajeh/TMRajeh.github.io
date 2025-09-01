@@ -25,135 +25,209 @@
         --card-border: #333;
       }
     }
+    /* Base / mobile-first */
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background: var(--bg-color);
       color: var(--text-color);
       line-height: 1.6;
+      font-size: 16px;
     }
+    h1 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin: 0; }
+    h2 { color: var(--primary); font-size: clamp(1.25rem, 3.2vw, 1.6rem); margin: 0 0 .5rem; }
+    p, li { font-size: clamp(0.98rem, 2.6vw, 1.05rem); }
+
+    .wrapper{ max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
     header {
       text-align: center;
-      padding: 3rem 1rem;
-      background: var(--primary);
-      color: white;
+      padding: 2.2rem 0 1.6rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
     }
-    header h1 { margin: 0; font-size: 2rem; }
-    header p { margin: 0.5rem 0 0; }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem;
-      background: var(--secondary);
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem 1rem;
-    }
-    h2 { color: var(--primary); }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 1rem;
-      margin: 1rem 0;
-    }
+    header p { margin: .5rem 0 0; opacity: .95; }
     .badges a {
       display: inline-block;
-      margin: 0.25rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
+      margin: 0.3rem;
+      padding: .55rem .9rem;
+      border-radius: 999px;
       background: var(--accent);
       color: white;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: .95rem;
+      line-height: 1;
+      min-height: 44px; /* touch target */
+    }
+
+    /* Mobile-first nav */
+    .site-nav { position: sticky; top: 0; z-index: 10; background: var(--secondary); box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .menu-btn { appearance:none; border: 0; background: transparent; color: #fff; font-weight: 700; padding: 12px 8px; min-width: 44px; }
+    .menu-btn:focus-visible{ outline: 2px solid #fff; outline-offset: 2px; }
+    .links { display: none; flex-direction: column; padding: 0 0 8px; }
+    .links a { color: #fff; text-decoration: none; padding: 12px 16px; border-top: 1px solid rgba(255,255,255,.18); }
+    .links a:active, .links a:hover{ background: rgba(255,255,255,.12); }
+    .links.open { display: flex; }
+
+    section { padding: 1.25rem 0; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    }
+
+    /* Larger screens */
+    @media (min-width: 720px){
+      header { padding: 3rem 0 2.2rem; }
+      .site-nav { background: var(--secondary); }
+      .menu-btn { display: none; }
+      .links { display: flex !important; flex-direction: row; gap: 12px; padding: 0; }
+      .links a { border: none; padding: 12px 10px; }
+      section { padding: 2rem 0; }
+      .grid {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Taha M. Rajeh, PhD</h1>
-    <p>Senior Lecturer in Data Science | Associate Research Fellow<br>Stirling College, Chengdu University</p>
-    <div class="badges">
-      <a href="https://scholar.google.com/citations?user=l4dL9WcAAAAJ&hl=en" target="_blank">Google Scholar</a>
-      <a href="https://www.linkedin.com/in/taha-rajeh-phd-5893bb232/" target="_blank">LinkedIn</a>
-      <a href="https://orcid.org/0000-0002-1816-2273" target="_blank">ORCID</a>
+    <div class="wrapper">
+      <h1>Taha M. Rajeh, PhD</h1>
+      <p>Senior Lecturer in Data Science | Associate Research Fellow<br>Stirling College, Chengdu University</p>
+      <div class="badges" role="navigation" aria-label="Quick links">
+        <a href="https://scholar.google.com/citations?user=l4dL9WcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/taha-rajeh-phd-5893bb232/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://orcid.org/0000-0002-1816-2273" target="_blank" rel="noopener">ORCID</a>
+      </div>
     </div>
   </header>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#publications">Publications</a>
-    <a href="#awards">Awards</a>
-    <a href="#contact">Contact</a>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="wrapper nav-inner">
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">☰ Menu</button>
+      <div class="links" id="navLinks" role="menu">
+        <a role="menuitem" href="#about">About</a>
+        <a role="menuitem" href="#experience">Experience</a>
+        <a role="menuitem" href="#education">Education</a>
+        <a role="menuitem" href="#publications">Publications</a>
+        <a role="menuitem" href="#awards">Awards</a>
+        <a role="menuitem" href="#contact">Contact</a>
+      </div>
+    </div>
   </nav>
 
-  <section id="about">
+  <section id="about" class="wrapper">
     <h2>About Me</h2>
-    <p>I am a Senior Lecturer and Associate Research Fellow at Stirling College, Chengdu University, with a Ph.D. in Computer Science from Southwest Jiaotong University. My research spans reinforcement learning, urban computing, and computer vision. I have extensive teaching experience across UK-Chinese and Middle Eastern institutions and have published in leading journals such as <em>IEEE Transactions on Intelligent Transportation Systems</em> and <em>Knowledge-Based Systems</em>. I actively contribute to the AI community as a reviewer, session chair, and invited speaker, while advancing new work on vision-based reinforcement learning, lifelong learning, and LLM-RL integration.</p>
+    <div class="card">
+      <p>I am a Senior Lecturer and Associate Research Fellow at Stirling College, Chengdu University, with a Ph.D. in Computer Science from Southwest Jiaotong University. My research spans reinforcement learning, urban computing, and computer vision. I have extensive teaching experience across UK-Chinese and Middle Eastern institutions and have published in leading journals such as <em>IEEE Transactions on Intelligent Transportation Systems</em> and <em>Knowledge-Based Systems</em>. I actively contribute to the AI community as a reviewer, session chair, and invited speaker, while advancing new work on vision-based reinforcement learning, lifelong learning, and LLM-RL integration.</p>
+    </div>
   </section>
 
-  <section id="experience">
+  <section id="experience" class="wrapper">
     <h2>Academic Positions</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Senior Lecturer in Data Science</h3>
+        <p><strong>Stirling College, Chengdu University</strong> (2023–present)</p>
+        <ul>
+          <li>Module leader for Machine Learning, NLP & Computer Vision, and Databases</li>
+          <li>Supervised theses that won Best Final Project (2025)</li>
+          <li>Mentorship, assessments, and curriculum design</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Lecturer in Computer Science</h3>
+        <p><strong>Yemen & Gulf University for Science and Technology</strong> (2016–2018)</p>
+        <ul>
+          <li>Delivered OOP (Java), DBMS, Computer Networks, Machine Learning</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Visiting Lecturer</h3>
+        <p><strong>University of Yemen</strong> (2011–2012)</p>
+        <ul>
+          <li>Delivered OOP (C#) and Computer Networks; student assessment</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>System Administrator</h3>
+        <p><strong>Al Yahya Exchange Co</strong> (2010–2014)</p>
+        <ul>
+          <li>Managed network & security infrastructure; planned IT initiatives</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="wrapper">
+    <h2>Education</h2>
     <div class="card">
-      <h3>Senior Lecturer in Data Science</h3>
-      <p><strong>Stirling College, Chengdu University</strong> (2023–present)</p>
       <ul>
-        <li>Module leader for Machine Learning, NLP & Computer Vision, and Databases</li>
-        <li>Supervised theses that won Best Final Project (2025)</li>
-        <li>Extensive mentorship and curriculum design</li>
+        <li><strong>Ph.D., Computer Science and Technology</strong> — Southwest Jiaotong University (2018–2023). Full CSC Scholarship.</li>
+        <li><strong>M.Sc., Computer Engineering</strong> — Mansoura University (2014–2016). Government scholarship (Egypt & Yemen).</li>
+        <li><strong>B.Sc., Computer Engineering</strong> — Sana'a University (2006–2010).</li>
+        <li><strong>PGCIE (in progress)</strong> — Staffordshire University (expected Dec 2025).</li>
       </ul>
     </div>
-    <div class="card">
-      <h3>Lecturer in Computer Science</h3>
-      <p><strong>Yemen & Gulf University for Science and Technology</strong> (2016–2018)</p>
-    </div>
-    <div class="card">
-      <h3>Visiting Lecturer</h3>
-      <p><strong>University of Yemen</strong> (2011–2012)</p>
-    </div>
   </section>
 
-  <section id="education">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>Ph.D. Computer Science and Technology</strong>, Southwest Jiaotong University, 2018–2023</li>
-      <li><strong>M.Sc. Computer Engineering</strong>, Mansoura University, 2014–2016</li>
-      <li><strong>B.Sc. Computer Engineering</strong>, Sana'a University, 2006–2010</li>
-    </ul>
-  </section>
-
-  <section id="publications">
+  <section id="publications" class="wrapper">
     <h2>Selected Publications</h2>
-    <ul>
-      <li>Rajeh, T. M. et al. <em>Time-aware bike flow prediction framework...</em> Knowledge-Based Systems, 2025.</li>
-      <li>Rajeh, T. M. et al. <em>A Clustering-Based Multi-Agent RL Framework for Taxi Dispatching</em>. IEEE T-ITS, 2024.</li>
-      <li>Rajeh, T. M. et al. <em>Modeling multi-regional temporal correlation for urban traffic flow prediction</em>. KBS, 2023.</li>
-    </ul>
+    <div class="card">
+      <ul>
+        <li>Rajeh, T. M., Li, T., Luo, Z., Javed, M. H., Alhaek, F. <em>Time-aware bike flow prediction framework with dynamic edge fusion and memory integration</em>. <strong>Knowledge-Based Systems</strong>, 322, 113693 (2025).</li>
+        <li>Rajeh, T. M., Luo, Z., Javed, M. H., Alhaek, F., Li, T. <em>A Clustering-Based Multi-Agent Reinforcement Learning Framework for Finer-Grained Taxi Dispatching</em>. <strong>IEEE Transactions on Intelligent Transportation Systems</strong> (2024).</li>
+        <li>Rajeh, T. M., Li, T., Li, C., Javed, M. H., Luo, Z., Alhaek, F. <em>Modeling multi‑regional temporal correlation with GRU and MLR for urban traffic flow prediction</em>. <strong>Knowledge-Based Systems</strong>, 262 (2023).</li>
+      </ul>
+      <p><a href="https://scholar.google.com/citations?user=l4dL9WcAAAAJ&hl=en" target="_blank" rel="noopener">View full list on Google Scholar →</a></p>
+    </div>
   </section>
 
-  <section id="awards">
+  <section id="awards" class="wrapper">
     <h2>Awards & Honors</h2>
-    <ul>
-      <li>Best Technical Achievement Award – China-ASEAN Education Cooperation Week (2019)</li>
-      <li>Certificate of Honor – Southwest Jiaotong University (2024)</li>
-      <li>Supervised students winning First Prize for Best Final Project (2025)</li>
-    </ul>
+    <div class="card">
+      <ul>
+        <li>Best Technical Achievement Award — China-ASEAN Education Cooperation Week (2019)</li>
+        <li>Certificate of Honor — Southwest Jiaotong University (2024)</li>
+        <li>Student awards under supervision — First Prize, Best Final Project (2025)</li>
+      </ul>
+    </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="wrapper">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:rajehtm@gmail.com">rajehtm@gmail.com</a></p>
-    <p>Phone: (+86) 15680658401</p>
-    <p>Address: Chengdu, China</p>
+    <div class="card">
+      <p>Email: <a href="mailto:rajehtm@gmail.com">rajehtm@gmail.com</a></p>
+      <p>Phone: (+86) 15680658401</p>
+      <p>Address: Chengdu, China</p>
+      <div class="badges" aria-label="Profiles">
+        <a href="https://scholar.google.com/citations?user=l4dL9WcAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+        <a href="https://www.linkedin.com/in/taha-rajeh-phd-5893bb232/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://orcid.org/0000-0002-1816-2273" target="_blank" rel="noopener">ORCID</a>
+      </div>
+    </div>
   </section>
+  <script>
+    // Mobile nav toggle
+    const btn = document.getElementById('menuBtn');
+    const links = document.getElementById('navLinks');
+    btn.addEventListener('click', () => {
+      const isOpen = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close menu when selecting a link (mobile UX)
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if (window.matchMedia('(max-width: 719px)').matches) {
+        links.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    }));
+  </script>
 </body>
 </html>
