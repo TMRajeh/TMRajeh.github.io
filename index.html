@@ -1,171 +1,228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dr. Taha Rajeh — AI & Data Science</title>
-  <meta name="description" content="Dr. Taha Rajeh — Researcher & Lecturer in AI, Deep Learning, Reinforcement Learning, Urban Computing, and Medical Imaging." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title><!-- Your Name --> – AI Researcher & Lecturer</title>
+  <meta name="description" content="Portfolio of <!-- Your Name -->, AI researcher and lecturer.">
   <style>
-    :root{--max:1080px;--fg:#0f172a;--muted:#475569;--accent:#2563eb;--bg:#f8fafc;--card:#ffffff;--ring:rgba(37,99,235,.25)}
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--fg);background:var(--bg);}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:var(--max);margin-inline:auto;padding:24px}
-    header{position:sticky;top:0;background:rgba(248,250,252,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #e5e7eb;z-index:50}
-    nav{display:flex;align-items:center;gap:16px;justify-content:space-between}
-    .nav-links{display:flex;flex-wrap:wrap;gap:14px;}
-    .brand{font-weight:800;letter-spacing:.2px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:12px;background:var(--accent);color:#fff;font-weight:600;border:1px solid transparent}
-    .btn:hover{filter:brightness(.95)}
-    section{scroll-margin-top:84px}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;padding-block:36px}
-    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:16px;padding:18px}
-    .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-    .kpi{padding:14px;border-radius:14px;border:1px solid #e5e7eb;background:#fff}
-    .kpi b{font-size:22px;display:block}
-    h1{font-size:36px;margin:8px 0 6px}
-    h2{font-size:26px;margin:28px 0 10px}
-    h3{font-size:18px;margin:18px 0 8px}
-    ul{margin:8px 0 0 20px}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .tags{display:flex;flex-wrap:wrap;gap:8px}
-    .tag{border:1px solid #e2e8f0;padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
-    footer{padding:36px 0;color:var(--muted);text-align:center}
-    @media (max-width:880px){.hero{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.grid-2{grid-template-columns:1fr}}
+    :root{
+      --bg:#ffffff; --text:#121212; --muted:#667085; --accent:#0e7afe; --line:#e6e6e6;
+      --card:#f7f7f8; --badge:#eef4ff; --link:#0e7afe;
+      --h1: clamp(28px, 4vw, 44px);
+      --h2: clamp(20px, 2.5vw, 28px);
+      --h3: clamp(16px, 2vw, 20px);
+      --body: 16px;
+      --radius: 12px;
+      --maxw: 980px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0b0b0b; --text:#f1f1f1; --muted:#9aa3af; --accent:#5aa2ff; --line:#1f2937; --card:#111315; --badge:#0f2446; --link:#74b0ff; }
+    }
+    html{scroll-behavior:smooth}
+    body{margin:0; font:400 var(--body)/1.55 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:var(--text);}
+    a{color:var(--link); text-decoration:none}
+    a:focus, button:focus{outline:2px solid var(--accent); outline-offset:2px}
+    header, main, footer{display:block}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:24px}
+    .topbar{display:flex; align-items:center; justify-content:space-between; gap:12px; padding-block:12px}
+    nav a{padding:8px 10px; border-radius:8px; color:var(--muted)}
+    nav a:hover{color:var(--text); background:var(--card)}
+    .hero{padding:28px 0; display:grid; gap:18px}
+    .title{font-size:var(--h1); font-weight:700; letter-spacing:-0.02em; margin:0}
+    .sub{color:var(--muted); font-size:var(--h3); margin:4px 0 0}
+    .badges{display:flex; flex-wrap:wrap; gap:8px}
+    .badge{background:var(--badge); color:#0b3b8a; padding:6px 10px; border-radius:999px; font-weight:600; font-size:14px}
+    .kpis{display:flex; gap:12px; flex-wrap:wrap}
+    .kpi{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:12px 14px; min-width:120px}
+    .kpi b{display:block; font-size:20px}
+    .cta{display:inline-block; padding:10px 14px; border-radius:10px; background:var(--accent); color:#fff; font-weight:700}
+    .grid-2{display:grid; gap:18px}
+    @media(min-width:820px){ .grid-2{grid-template-columns:1fr 1fr} .hero{grid-template-columns:1.5fr 1fr; align-items:center} }
+    section{padding:18px 0; border-top:1px solid var(--line)}
+    section:first-of-type{border-top:none}
+    h2{font-size:var(--h2); margin:0 0 12px}
+    h3{font-size:var(--h3); margin:0 0 8px}
+    ul{padding-left:18px; margin:8px 0 0}
+    li{margin:6px 0}
+    .pubs li{margin:10px 0}
+    .meta{color:var(--muted); font-size:14px}
+    .cards{display:grid; gap:12px}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:14px}
+    .split{display:flex; gap:10px; flex-wrap:wrap}
+    .footer{color:var(--muted); font-size:14px; padding:28px 0 40px}
+    /* Optional tiny filter styles (used if you request publications filter) */
+    .filter{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px}
+    .filter button{padding:6px 10px; border:1px solid var(--line); background:var(--bg); color:var(--text); border-radius:999px; cursor:pointer}
+    .filter button[aria-pressed="true"]{background:var(--accent); color:#fff; border-color:var(--accent)}
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <nav>
-        <div class="brand">Dr. Taha Rajeh</div>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#research">Research</a>
-          <a href="#experience">Experience</a>
-          <a href="#teaching">Teaching</a>
-          <a href="#publications">Publications</a>
-          <a href="#activities">Activities</a>
-          <a href="#contact">Contact</a>
-          <a class="btn" href="#cv">CV</a>
-        </div>
+  <a class="skip-link" href="#main" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main</a>
+  <header class="wrap" role="banner" aria-label="Header">
+    <div class="topbar">
+      <div style="font-weight:800; letter-spacing:-0.02em;"><!-- Your Name --></div>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
       </nav>
+    </div>
+
+    <div class="hero" id="top">
+      <div>
+        <h1 class="title"><!-- Your Name --></h1>
+        <p class="sub"><!-- Titles/Affiliations e.g., Assistant Professor, XYZ University | Research Scientist, ABC Lab --></p>
+        <div class="badges" aria-label="Quick links">
+          <!-- Replace with your real links -->
+          <a class="badge" href="<!-- Google Scholar URL -->" target="_blank" rel="noopener">Scholar</a>
+          <a class="badge" href="<!-- Semantic Scholar URL -->" target="_blank" rel="noopener">Semantic</a>
+          <a class="badge" href="<!-- DBLP URL -->" target="_blank" rel="noopener">DBLP</a>
+          <a class="badge" href="<!-- ORCID URL -->" target="_blank" rel="noopener">ORCID</a>
+          <a class="badge" href="<!-- GitHub URL -->" target="_blank" rel="noopener">GitHub</a>
+          <a class="badge" href="<!-- LinkedIn URL -->" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+
+        <div class="kpis" role="group" aria-label="Key metrics">
+          <div class="kpi" aria-label="Total citations"><b><!-- 1234 --></b><span class="meta">Citations</span></div>
+          <div class="kpi" aria-label="h-index"><b><!-- 20 --></b><span class="meta">h-index</span></div>
+          <div class="kpi" aria-label="Publications"><b><!-- 45 --></b><span class="meta">Publications</span></div>
+        </div>
+
+        <p style="margin:10px 0 14px"><!-- Short 2–3 sentence bio from CV --></p>
+        <div class="split">
+          <a class="cta" href="<!-- CV.pdf -->" target="_blank" rel="noopener">Download CV</a>
+          <a href="#publications">Browse publications →</a>
+        </div>
+      </div>
+      <!-- Optional headshot -->
+      <div aria-hidden="true" style="justify-self:center">
+        <!-- <img src="headshot.jpg" alt="Portrait of Your Name" width="240" height="240" style="border-radius:16px; display:block; max-width:100%;"> -->
+      </div>
     </div>
   </header>
 
-  <main class="wrap">
-    <section id="about" class="hero">
-      <div class="card">
-        <h1>AI Researcher & Senior Lecturer</h1>
-        <p>Senior Lecturer at Stirling College, Chengdu University (CDU). Research in <b>Deep Learning</b>, <b>Reinforcement Learning</b>, <b>Urban Computing</b>, and <b>Medical Imaging</b>. Focused on human‑centered AI, lifelong adaptation, and real‑world impact.</p>
-        <div class="tags" aria-label="links">
-          <a class="tag" href="mailto:rejehtm@gmail.com">Email</a>
-          <a class="tag" href="#">Google Scholar</a>
-          <a class="tag" href="#">LinkedIn</a>
-          <a class="tag" href="#">GitHub</a>
-          <a class="tag" href="#">ResearchGate</a>
-          <a class="tag" href="#">ORCID</a>
-          <a class="tag" href="#">DBLP</a>
-          <a class="tag" href="#">Semantic Scholar</a>
+  <main id="main" class="wrap" role="main">
+    <section id="about">
+      <h2>About</h2>
+      <div class="grid-2">
+        <div>
+          <p><!-- One short paragraph about your research focus, teaching, and interests. --></p>
+          <p class="meta"><strong>Keywords:</strong> <!-- foundation models, ML safety, RL, NLP, vision --></p>
         </div>
-        <div class="kpis" style="margin-top:16px">
-          <div class="kpi"><b>16+</b><span>H‑Index</span></div>
-          <div class="kpi"><b>800+</b><span>Citations</span></div>
-          <div class="kpi"><b>40+</b><span>Journal Papers</span></div>
-          <div class="kpi"><b>25+</b><span>Conference Papers</span></div>
+        <div class="card" aria-label="Contact">
+          <h3>Contact</h3>
+          <p><strong>Email:</strong> <!-- you@university.edu --></p>
+          <p><strong>Office:</strong> <!-- Building, Room --></p>
+          <p><strong>Affiliation:</strong> <!-- Department, University --></p>
         </div>
       </div>
-      <div class="card">
-        <h3>Research Interests</h3>
-        <ul>
-          <li>Computer Vision: segmentation, detection, weak supervision</li>
-          <li>Reinforcement Learning for infrastructure & complex projects</li>
-          <li>Urban Computing & Transportation Analytics</li>
-          <li>Medical Image Analysis (TMJ MRI, 3D segmentation)</li>
-          <li>Human‑Centered, Lifelong & Transferable AI</li>
-        </ul>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <div class="cards">
+        <!-- Repeat .card blocks for highlight projects -->
+        <article class="card">
+          <h3><!-- Project / Theme Name --></h3>
+          <p class="meta"><!-- 2023–present · Collaborators: A, B, C --></p>
+          <p><!-- 1–2 sentence description of the project or theme. --></p>
+          <p><a href="<!-- project link -->">Project page</a> · <a href="<!-- code link -->">Code</a> · <a href="<!-- paper doi/url -->">Paper</a></p>
+        </article>
       </div>
     </section>
 
-    <section id="research" class="grid-2">
-      <div class="card">
-        <h2>Selected Projects</h2>
-        <ul>
-          <li><b>Knowledge Signaling for Lifelong AI</b> — frameworks for incremental learning and transfer.</li>
-          <li><b>Time‑Aware Bike Flow Prediction</b> — urban mobility forecasting with spatio‑temporal fusion.</li>
-          <li><b>TMJ MRI Segmentation</b> — MedicalNet encoders with Dice logging and robust training.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2>Funding & Patents</h2>
-        <ul>
-          <li>National Foreign Experts Programme (PI) — cost‑effective crack segmentation.</li>
-          <li>Sichuan Natural Science Foundation (Co‑PI) — dermoscopic segmentation (weak labels).</li>
-          <li>2 Patents — CAM‑based crack segmentation; target scale selection.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="experience" class="grid-2">
-      <div class="card">
-        <h2>Experience</h2>
-        <ul>
-          <li><b>Senior Lecturer</b>, Stirling College, CDU — AI, Data Science, supervision.</li>
-          <li><b>Postdoctoral Research Fellow</b>, SWJTU — segmentation & infrastructure AI.</li>
-          <li><b>Lecturer</b>, SWJTU‑Leeds Joint School — Algorithms, AI, curriculum design.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h2 id="teaching">Teaching</h2>
-        <ul>
-          <li>Artificial Intelligence, Computing Science Project</li>
-          <li>Introduction to Data Science</li>
-          <li>Data Structures & Algorithms; Formal Languages & Automata</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="publications" class="card">
-      <h2>Selected Publications</h2>
+    <section id="experience">
+      <h2>Experience</h2>
       <ul>
-        <li>Efficient crack segmentation with modular/lightweight architectures.</li>
-        <li>Triplet‑attention teacher–student for dermoscopic image segmentation.</li>
-        <li>FedGODE/FedAGAT for traffic flow prediction with graph ODE/attention.</li>
-        <li>Vision Transformer with fusion attention (3D brain tumor segmentation).</li>
+        <!-- List in reverse-chronological order -->
+        <li><strong><!-- Role --></strong>, <!-- Organization --> <span class="meta">— <!-- 2024–present --></span></li>
+        <li><strong><!-- Role --></strong>, <!-- Organization --> <span class="meta">— <!-- 2021–2024 --></span></li>
       </ul>
-      <p style="margin-top:8px">Full list on <a href="#">Google Scholar</a>.</p>
     </section>
 
-    <section id="activities" class="grid-2">
-      <div class="card">
-        <h2>Activities</h2>
-        <ul>
-          <li>Session chair & speaker (WACV, AIPR, BDML, etc.).</li>
-          <li>Reviewer: TNNLS, T‑ITS, PR, EAAI, ESWA, Neurocomputing, etc.</li>
-        </ul>
-      </div>
-      <div class="card" id="cv">
-        <h2>Download CV</h2>
-        <p>Provide a link to your latest PDF CV hosted on GitHub or Drive.</p>
-        <a class="btn" href="#">Get CV (PDF)</a>
-      </div>
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <ul>
+        <li><strong><!-- Course Code: Title --></strong> <span class="meta">— <!-- Term, Year, Role (Instructor/TA) --></span></li>
+        <li><strong><!-- Course Code: Title --></strong> <span class="meta">— <!-- Term, Year, Role --></span></li>
+      </ul>
     </section>
 
-    <section id="contact" class="card">
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <!-- Optional filter (ask me to enable): 
+      <div class="filter" role="toolbar" aria-label="Filter publications by topic">
+        <button type="button" aria-pressed="true" data-tag="all">All</button>
+        <button type="button" aria-pressed="false" data-tag="nlp">NLP</button>
+        <button type="button" aria-pressed="false" data-tag="safety">Safety</button>
+        <button type="button" aria-pressed="false" data-tag="rl">RL</button>
+      </div> -->
+
+      <ol class="pubs">
+        <!-- Use <li> with clear link targets, DOIs, and venue/year -->
+        <li>
+          <strong><!-- Paper Title --></strong> — <!-- Authors -->
+          <span class="meta">· <!-- Venue, Year --></span><br>
+          <a href="<!-- PDF/DOI -->">PDF</a> · <a href="<!-- Code -->">Code</a> · <a href="<!-- Project Page -->">Project</a>
+        </li>
+      </ol>
+
+      <!-- Optional JSON-backed publications: ask me to enable a <script type="application/json"> with your pubs. -->
+    </section>
+
+    <section id="awards">
+      <h2>Awards & Activities</h2>
+      <ul>
+        <li><strong><!-- Award Name --></strong> <span class="meta">— <!-- Year --></span></li>
+        <li><!-- Service / Reviewing / Organizing roles --></li>
+      </ul>
+    </section>
+
+    <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:rejehtm@gmail.com">rejehtm@gmail.com</a></p>
-      <p>Phone (optional): +86‑15680685401</p>
-      <p>Affiliation: Stirling College, Chengdu University — Longquanyi District, Chengdu, Sichuan, PRC</p>
+      <p><strong>Email:</strong> <!-- you@university.edu --> · <strong>Twitter:</strong> <!-- @handle (optional) --></p>
+      <p><strong>Social:</strong>
+        <a href="<!-- Scholar -->">Scholar</a> ·
+        <a href="<!-- Semantic -->">Semantic</a> ·
+        <a href="<!-- DBLP -->">DBLP</a> ·
+        <a href="<!-- ORCID -->">ORCID</a> ·
+        <a href="<!-- GitHub -->">GitHub</a> ·
+        <a href="<!-- LinkedIn -->">LinkedIn</a>
+      </p>
     </section>
   </main>
 
-  <footer>
-    © <span id="y"></span> Taha Rajeh — All rights reserved. | Academic portfolio.
+  <footer class="wrap footer" role="contentinfo">
+    <span>© <!-- Current Year --> <!-- Your Name --></span>
+    <span> · Built with clean HTML/CSS/JS. No frameworks.</span>
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <script>
+    // (Optional) Tiny publications filter — enable if you add the .filter toolbar
+    (function(){
+      const toolbar = document.querySelector('.filter');
+      if(!toolbar) return;
+      const buttons = toolbar.querySelectorAll('button');
+      const items = document.querySelectorAll('.pubs li');
+      buttons.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          buttons.forEach(b=>b.setAttribute('aria-pressed','false'));
+          btn.setAttribute('aria-pressed','true');
+          const tag = btn.dataset.tag;
+          items.forEach(li=>{
+            const tags = (li.getAttribute('data-tags')||'').split(',').map(s=>s.trim());
+            const show = (tag==='all') || tags.includes(tag);
+            li.style.display = show ? '' : 'none';
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
